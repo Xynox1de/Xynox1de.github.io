@@ -210,6 +210,7 @@ const quizQuestionEl = document.getElementById("quiz-question");
 const quizOptionsEl = document.getElementById("quiz-options");
 const quizScoreEl = document.getElementById("quiz-score");
 const nextQns = document.getElementById("next-question");
+const quizResultsEl = document.getElementById("quiz-results");
 
 //select all subtopic pages
 function hideall(){ //function to hide all pages
@@ -554,6 +555,7 @@ function generateQuizQuestion() {
   nextQns.style.display = "none"; // Hide next question button
   quizOptionsEl.innerHTML = ""; // Clear previous answer buttons
   answered = false; // Reset answered flag
+  quizResultsEl.textContent = "";
 
   const track = getRandomTrack(); // Choose a random track
   const keys = Object.keys(track.stats); // Get all stat keys (e.g., laps, length)
@@ -615,11 +617,11 @@ function checkAnswer(selected, clickedBtn) {
     score += 100;
     clickedBtn.style.backgroundColor = "green";
     clickedBtn.style.color = "white";
-    window.alert("Correct!");
+    quizResultsEl.textContent = "Correct!";1
   } else {
     clickedBtn.style.backgroundColor = "red";
     clickedBtn.style.color = "white";
-    window.alert(`Incorrect! The correct answer is: ${currentAnswer}`);
+    quizResultsEl.textContent =  `Wrong! The correct answer is ${currentAnswer}`;
   }
 
   nextQns.style.display = "inline-block"; // Show "Next Question" button
