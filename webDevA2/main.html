@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Pinnicle of Racing</title>
+        <link rel="icon" href="Images/V10-Renault.jpg" type="image/png">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1 id="mainTitle">Formula 1</h1>
+        </header>
+        <nav> <!--menu system-->
+            <button id="hamIcon">Open Menu</button>
+            <ul id="menuItemsList">
+                <li><button id="page1btn">Iconic Tracks</button></li>
+                <li><button id="page2btn">Drivers & teams</button></li>
+                <li><button id="page3btn">Rules & Regs</button></li>
+            </ul>
+        </nav>
+        <main id="pagecontainer">
+            <section class="page" id="page0">
+                <h2>So what is Formula 1?</h2>
+                <img src="Images/Ferrari-F1.png" alt="F1 car" class="f1-car">
+                <p class="page-text">
+                    Formula One (F1) is the highest class of worldwide racing for open-wheel single-seater formula racing cars sanctioned by the Fédération Internationale de l'Automobile (FIA).
+                </p>
+                <br>
+                <p class="page-text">
+                    The FIA Formula One World Championship has been one of the world's premier forms of motorsport since its inaugural running in 1950 and is often considered to be the pinnacle of motorsport.
+                </p>
+                <br>
+                <p class="page-text">
+                    The word formula in the name refers to the set of rules all participant cars must follow. A Formula One season consists of a series of races, known as Grands Prix. Grands Prix take place in multiple countries and continents on either purpose-built circuits or closed roads.
+                </p>
+            </section>
+
+            <section class="page" id="page1">
+                <h2>Iconic Tracks Of Formula 1</h2>
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-track">
+                            <img src="Images/SilverStone.jpg" alt="SilverStone Circuit">
+                            <img src="Images/Monaco.jpg" alt="Circuit De Monaco">
+                            <img src="Images/Monza.jpg" alt="Autodromo Nazionale Monza">
+                            <img src="Images/Interlagos.jpg" alt="Autódromo José Carlos Pace">
+                            <img src="Images/Spa.jpg" alt="Spa-Francorchamps">
+                            <img src="Images/Singapore.jpg" alt="Singapore Circuit">
+                        </div>
+                        <button class="carousel-btn prev"> &lt; </button>
+                        <button class="carousel-btn next"> &gt; </button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <h3 id="track-name">Silverstone</h3>
+                    <p id="track-description"></p>
+                    <div id="track-stats"></div>
+                </div>
+                <div class="quiz-container">
+                    <h2>Track Knowledge Quiz</h2>
+                    <div id="quiz-question"></div>
+                    <div id="quiz-options"></div>
+                    <button id="next-question" style="display:none;">Next Question</button>
+                    <div id="quiz-score">Score: 0</div>
+                    <div id="quiz-results"></div>
+                </div>
+            </section>
+
+            <section class="page" id="page2">
+                <h2>Drivers and Constructors</h2>
+
+                <p style="text-align: center; color: lightgoldenrodyellow; font-size: 18px;">
+                    Click on a team to learn about them!
+                </p>
+
+                <div class="team-logos-container">
+                    <img src="Images/F1-logos.jpg" alt="F1-teams">
+
+                    <!--Team buttons-->
+                    <button class="team-btn" data-team="sauber"></button>
+                    <button class="team-btn" data-team="redbull"></button>
+                    <button class="team-btn" data-team="williams"></button>
+                    <button class="team-btn" data-team="benz"></button>
+                    <button class="team-btn" data-team="am"></button>
+                    <button class="team-btn" data-team="alpine"></button>
+                    <button class="team-btn" data-team="mclaren"></button>
+                    <button class="team-btn" data-team="ferrari"></button>
+                    <button class="team-btn" data-team="racingbulls"></button>
+                    <button class="team-btn" data-team="haas"></button>
+                </div>
+                <div id="team-info-container">
+                    <div id="team-info">
+                        <div class="team-name"></div>
+                        <div class="team-drivers"></div>
+                        <div class="team-description"></div>
+                        <div class="team-stats"></div>
+                    </div>
+                </div>
+                <div class="game-container">
+                    <h2>F1 Reaction Time: Lights Out!</h2>
+                    <p class="page-text">Click the start button to start the minigame and when the red lights go out, press any key as quickly as possible to reveal your reaction speed!</p>
+                    <div class="lights">
+                        <div class="light red"></div>
+                        <div class="light red"></div>
+                        <div class="light red"></div>
+                        <div class="light red"></div>
+                        <div class="light red"></div>
+                    </div>
+
+                    <button id="start-btn">Start Race</button>
+                    <p id="message">Wait for the lights to go out...</p>
+                    <p id="result"></p>
+                </div>
+            </section>
+
+            <section class="page" id="page3">
+                <h2>Rules and Regulations</h2>
+                <h3>The Past</h3>
+                <div class="rule-section">
+                    <div class="rules-text past">
+                        <p>The V10 era, spanning the late 1980s to mid-2000s, was known for its raw power and iconic engine sound. 3.0-liter naturally aspirated V10s revved beyond 19,000 RPM, producing the high-pitched roar that defined a generation. Regulations were far less restrictive — teams had more design freedom, refueling was allowed, and driver aids like traction control were common. It was a time of innovation, speed, and spectacle before tighter rules reshaped the sport.</p>
+                    </div>
+                    <div class="rule-image">
+                        <img src="Images/V10-Renault.jpg" alt="Fernando Alonso's R25 V10" id="v10-image">
+                        <audio src="Sounds/V10.mp3" id="v10-sound"></audio>
+                        <p class="add-info-text">Click on image to play the V10 engine melody</p>
+                    </div>
+                </div>
+                <h3>The Present</h3>
+                <div class="rule-section">
+                    <div class="rule-image">
+                        <img src="Images/V6-hybrid.jpg" alt="Max Verstappen's RB20 V6 Hybrid" id="v6-image">
+                        <audio src="Sounds/Hybrid.mp3" id="v6-sound"></audio>
+                        <p class="add-info-text">Click on image to play the V6 engine melody</p>
+                    </div>
+                    <div class="rules-text future">
+                        <p>The current era of Formula 1, introduced in 2022, features ground-effect aerodynamics designed to improve wheel-to-wheel racing by reducing dirty air. Cars are powered by 1.6-liter V6 turbo-hybrid engines that combine high efficiency with cutting-edge energy recovery systems. A cost cap has also been implemented to promote fairer competition across teams. With improved safety standards, sustainable fuel targets, and closer racing, this era represents a balance between performance, innovation, and long-term sustainability.</p>
+                    </div>
+                </div>
+                <h3>The Future</h3>
+                <div class="rule-section">
+                    <div class="rules-text">
+                        <p>The 2026 F1 regulations introduce major changes to engines and aerodynamics. The power units will drop the MGU‑H and boost electric power via the MGU‑K from 120 kW to 350 kW, achieving a 50:50 electric-to-combustion power split. Engines will run on 100% sustainable fuel. Aerodynamically, cars will feature active front and rear wings with two modes—Z‑Mode (high downforce) and X‑Mode (low drag)—to improve cornering and overtaking. These changes aim to make racing more sustainable, competitive, and exciting.</p>
+                    </div>
+                    <div class="rule-image">
+                        <img src="Images/2026-regs.jpg" alt="Demostration of 2026 F1 regulations" id="2026-image">
+                        <p class="add-info-text">This is a demostration of the 2026 regulations proposed by the FIA</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <button class="btnFS">FullScreen</button>
+                <img id="qrCode" src="Images/qrcode.png">
+            </footer>
+        </main>
+    </body>
+</html>
