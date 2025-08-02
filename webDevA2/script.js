@@ -204,6 +204,7 @@ const startBtn = document.getElementById("start-btn");
 const lights = document.querySelectorAll(".light");
 const message = document.getElementById("message");
 const result = document.getElementById("result");
+const reactBtn = document.getElementById("react-btn");
 
 //For track quiz
 const quizQuestionEl = document.getElementById("quiz-question");
@@ -436,7 +437,7 @@ const ruleObserver = new IntersectionObserver(function(entries, observer) {
       observer.unobserve(entry.target); // Stop observing this element to prevent repeated animations
     }
   })
-}, { threshold: 0.25}); // Trigger when 25% of the element is visible
+}, { threshold: 0.1}); // Trigger when 10% of the element is visible
 
 // Set the observer for page 3
 ruleObserver.observe(document.querySelector('#page3'));
@@ -485,6 +486,8 @@ function resetGame() {
   result.textContent = "";
   falseStart = false;
   reacted = false;
+
+  reactBtn.style.display = "none";
 }
 
 function startGame() {
@@ -511,6 +514,10 @@ function startGame() {
 
     message.textContent = "GO!";
     startTime = Date.now(); // Start the reaction timer
+
+    if (window.matchMedia("(max-width: 800px)").matches) {    
+      reactBtn.style.display = "inline-block";
+    }
   }, 5 * 400 + delay); // Wait until all lights are on (5 x 400ms) + random delay
 }
 
@@ -537,6 +544,7 @@ function registerReaction() {
 
 startBtn.addEventListener("click", startGame);
 document.addEventListener("keydown", registerReaction);
+reactBtn.addEventListener("click", registerReaction);
 
 // For the track quiz
 
