@@ -1,0 +1,675 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: "F1Font";
+  src: url("Fonts/Formula1-Regular_web_0.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.page{
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  width: 90vw;
+  height: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border-left: 5px solid red;
+  background: black;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.page.showing {
+  display: block;
+  opacity: 1;
+}
+
+.page h2 {
+  color: lightgoldenrodyellow;
+  font-size: 36px;
+  text-align: center;
+}
+
+.page-text{
+  color: lightgoldenrodyellow;
+  text-align: center;
+  font-size: clamp(14px, 2vw, 20px);
+  letter-spacing: 3px;
+  line-height: 1.5;
+    
+  opacity: 0;
+  bottom: -20vh;
+  transition: bottom 1.7s ease-out, opacity 1.7s ease-out;
+}
+
+.page-text.show{
+  opacity: 1;
+  bottom: 0;
+}
+
+body {
+  font-family: "F1Font", sans-serif;
+}
+
+nav {
+  background: #1a1a1a;
+  padding: 10px;
+  text-align: center;
+}
+
+nav button, nav ul li button {
+  background: black;
+  color: white;
+  border: 2px solid red;
+  padding: 10px 20px;
+  margin: 5px;
+  font-family: "F1Font", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.1s ease-out;
+}
+
+nav button:hover, nav ul li button:hover {
+  box-shadow: 0 2px 5px rgb(255, 67, 67);
+}
+
+nav ul{display: block;}
+
+nav ul li{display:inline;}
+
+header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeBackground 15s infinite;
+  z-index: 0;
+}
+
+header h1 {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  text-shadow: 0 2px 5px rgb(255, 67, 67);
+  transition: color 0.8s ease;
+}
+
+header h1:hover {
+  color: red;
+}
+
+@keyframes fadeBackground {
+  0% { background-image: url('Images/F1-racing-1.jpg'); opacity: 1; }
+  25% { background-image: url('Images/F1-racing-2.jpg'); opacity: 1; }
+  50% { background-image: url('Images/F1-racing-3.jpg'); opacity: 1; }
+  75% { background-image: url('Images/F1-racing-4.jpg'); opacity: 1; }
+  100% { background-image: url('Images/F1-racing-1.jpg'); opacity: 1; }
+}
+
+/*CSS for responsive menu*/
+#hamIcon{
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  display: none;
+}
+
+.btnFS{
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px auto 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+}
+
+/* For carousel */
+.carousel-container {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.8s ease;
+}
+
+.carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.caption{
+  text-align: center;
+}
+
+#track-name{
+  color: lightgoldenrodyellow;
+  font-size: clamp(25px, 2vw, 30px);
+  letter-spacing: 3px;
+  line-height: 1.5;
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#track-description{
+  color: lightgoldenrodyellow;
+  font-size: clamp(14px, 2vw, 20px);
+  letter-spacing: 3px;
+  line-height: 1.5;
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#track-stats{
+  color: lightgoldenrodyellow;
+  font-size: clamp(12px, 2vw, 14px);
+  letter-spacing: 3px;
+  line-height: 2.5;
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#track-name.fade-out, #track-description.fade-out, #track-stats.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* For team info page */
+.team-logos-container{
+  position: relative;
+  display: inline-block;
+}
+
+.team-logos-container img{
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+#team-info-container{
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease-in-out;
+  width: 80%;
+  min-height: 600px;
+  border-left: 5px solid red;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#team-info-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: inherit; /* Uses same background-image */
+  filter: blur(10px);
+  z-index: 1;
+  pointer-events: none;
+  transform: scale(1.05); /* Slightly upscale to avoid clipping blur */
+}
+
+#team-info-container.fade-out{
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#team-info{
+  position: relative;
+  z-index: 2;
+  color: lightgoldenrodyellow;
+  text-shadow: 0 0 4px black;
+  text-align: center;
+  letter-spacing: 3px;
+  line-height: 1.5;
+  padding: 20px;
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#team-info.fade-out{
+  opacity: 0;
+}
+
+/* invisible clickable buttons */
+.team-btn{
+  position: absolute;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
+.team-btn[data-team="sauber"] {
+  top: 12%;
+  left: 27.6%;
+  width: 5%;
+  height: 15%;
+}
+
+.team-btn[data-team="redbull"] {
+  top: 12%;
+  left: 37%;
+  width: 8%;
+  height: 15%;
+}
+
+.team-btn[data-team="williams"] {
+  top: 12%;
+  left: 49%;
+  width: 5%;
+  height: 15%;
+}
+
+.team-btn[data-team="benz"] {
+  top: 12%;
+  left: 59%;
+  width: 5%;
+  height: 15%;
+}
+
+.team-btn[data-team="am"] {
+  top: 12%;
+  left: 66%;
+  width: 8%;
+  height: 15%;
+}
+
+.team-btn[data-team="alpine"] {
+  bottom: 12%;
+  left: 27.6%;
+  width: 5%;
+  height: 15%;
+}
+
+.team-btn[data-team="mclaren"] {
+  bottom: 12%;
+  left: 37%;
+  width: 8%;
+  height: 15%;
+}
+
+.team-btn[data-team="ferrari"] {
+  bottom: 12%;
+  left: 49%;
+  width: 5%;
+  height: 15%;
+}
+
+.team-btn[data-team="racingbulls"] {
+  bottom: 12%;
+  left: 59%;
+  width: 5%;
+  height: 15%;
+}
+
+.team-btn[data-team="haas"] {
+  bottom: 12%;
+  left: 66%;
+  width: 8%;
+  height: 15%;
+}
+
+/* Wrapper for each rule section */
+.rule-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap; /* allows vertical stacking on small screens */
+}
+
+#page3 h3{
+  color: lightgoldenrodyellow;
+  text-align: center;
+  font-size: clamp(24px, 2vw, 30px);
+  letter-spacing: 3px;
+  padding: 1rem;
+}
+
+/* Wrapper for each rule section */
+.rule-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap; /* allows vertical stacking on small screens */
+}
+
+/* Text styling */
+.rules-text {
+  position:relative;
+  color: lightgoldenrodyellow;
+  font-size: clamp(14px, 2vw, 20px);
+  letter-spacing: 3px;
+  line-height: 2.0;
+  flex: 1;
+  padding: 1rem;
+  text-align: justify; /* more readable across alignments */
+
+  opacity: 0;
+  bottom: 20vh;
+  transition: opacity 1.5s ease, bottom 1.5s ease;
+}
+
+.rules-text.show{
+  opacity: 1;
+  bottom: 0;
+}
+
+.add-info-text {
+  color: lightgoldenrodyellow;
+  font-size: clamp(10px, 2vw, 14px);
+  text-align: center;
+  letter-spacing: 3px;
+  line-height: 2.0;
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Override text-align per section if needed */
+.rules-text.past {
+  text-align: left;
+}
+
+.rules-text.future {
+  text-align: right;
+}
+
+/* Image styling */
+.rule-image {
+  position:relative;
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+
+  opacity: 0;
+  bottom: 20vh;
+  transition: opacity 1.5s ease, bottom 1.5s ease;
+}
+
+.rule-image.show{
+  opacity: 1;
+  bottom: 0;
+}
+
+.rule-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* indicates it's clickable */
+}
+
+.rule-image img:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 15px white;
+}
+
+/* For the F1 car animation */
+.f1-car {
+  width: 1000px;
+  max-width: 80%;
+  position: relative;
+  left: -50vw;
+  opacity: 0;
+  transition: left 1.5s ease-out, opacity 1.5s ease-out;
+}
+
+.f1-car.show {
+  left: 10vw;
+  opacity: 1;
+}
+
+/* For the minigame */
+#page2 .game-container {
+  margin-top: 40px;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: lightgoldenrodyellow;
+}
+
+#page2 .game-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: lightgoldenrodyellow;
+}
+
+#page2 .lights {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 20px 0;
+}
+
+#page2 .light {
+  width: 40px;
+  height: 40px;
+  background: #222;
+  border-radius: 50%;
+  border: 2px solid #444;
+  transition: background-color 0.3s ease;
+}
+
+#page2 .red.on {
+  background: red;
+}
+
+#page2 .light.off {
+  background: #000;
+}
+
+#page2 #start-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+#page2 #react-btn {
+  display: none;
+}
+
+#page2 #start-btn:hover {
+  background-color: darkred;
+}
+
+#page2 #message,
+#page2 #result {
+  margin-top: 15px;
+  font-size: 18px;
+  color: lightgoldenrodyellow;
+}
+
+/* For the quiz */
+#page1 .quiz-container {
+  background-color: #1a1a1a;
+  color: lightgoldenrodyellow;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+#page1 #quiz-question {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#page1 #quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+#page1 #quiz-options button {
+  padding: 10px 20px;
+  background-color: darkkhaki;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#page1 #quiz-options button:hover {
+  background-color: darkred;
+}
+
+#page1 #next-question {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: gold;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#quiz-score,
+#quiz-results{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: lightgoldenrodyellow;
+}
+
+#qrCode{
+  display: block;
+  margin: 10px auto 0;
+  width: 20%
+}
+
+@media screen and (max-width:800px){
+
+  /*make a menu items vertical*/
+  nav ul li{display:block;}
+
+  /* unhide menu icon */
+  #hamIcon{display:block;}
+
+  /*hide the menu item list*/
+  nav ul{display:none;}
+
+  /*Show menu when toggled open by mobile*/
+  nav ul.menuShow {display: block;}
+
+  #page2 #react-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  .rule-section{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rules-text.future
+  .rules-text.past{
+    text-align: center;    
+  }
+
+  .rule-image
+  .rules-text{
+    padding: 0.5rem;
+    flex: unset;
+  }
+
+  .rule-image img{
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  #qrCode{display:none;}
+}
