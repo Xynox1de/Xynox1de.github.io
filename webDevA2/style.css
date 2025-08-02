@@ -545,6 +545,10 @@ header h1:hover {
   transition: background-color 0.3s ease;
 }
 
+#page2 #react-btn {
+  display: none;
+}
+
 #page2 #start-btn:hover {
   background-color: darkred;
 }
@@ -634,25 +638,37 @@ header h1:hover {
   /*Show menu when toggled open by mobile*/
   nav ul.menuShow {display: block;}
 
+  #page2 #react-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+
   .rule-section{
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .rules-text.future
   .rules-text.past{
-      text-align: center;    
+    text-align: center;    
   }
 
   .rule-image
   .rules-text{
-      padding: 0.5rem;
-      flex: unset;
+    padding: 0.5rem;
+    flex: unset;
   }
 
   .rule-image img{
-      max-width: 90%;
-      margin: 0 auto;
+    max-width: 90%;
+    margin: 0 auto;
   }
 
   #qrCode{display:none;}
